@@ -5,6 +5,23 @@ document.addEventListener('DOMContentLoaded', function() {
     let rachaPower = 0;
     let totalRoot = 0;
 
+    function loadNavbar() {
+        const navbarContainer = document.getElementById('navbar-container');
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                navbarContainer.innerHTML = data;
+                // Una vez cargado el navbar, puedes activar cualquier JavaScript necesario para Bootstrap o tus propios scripts
+                // Esto es necesario porque el contenido se carga dinámicamente y los elementos no existían al cargar la página
+                activateBootstrapComponents();
+            });
+    }
+
+    function activateBootstrapComponents() {
+        // Tu código para inicializar componentes de Bootstrap, si es necesario
+    }
+    loadNavbar();
+
     function powers(){
         const base = Math.floor(Math.random() * 11);
         let power;
@@ -74,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById("racha").textContent = `Completado: ${totalRoot} / 13:`;
         }
     }
+
     
 
     const pathname = window.location.pathname;
@@ -85,4 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById("submit-answer").addEventListener('click', validateAnswer);
     document.getElementById("next-button").addEventListener('click', nextExercise);
+    
+    
 });
