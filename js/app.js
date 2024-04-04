@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (pathname.includes('radicacion.html')) {
             roots();
             totalRoot +=1;
-            document.getElementById("racha").textContent = `Completado: ${totalRoot} / 13:`;
+            document.getElementById("racha").textContent = `Completado: ${totalRoot} / 13`;
         }
     }
 
