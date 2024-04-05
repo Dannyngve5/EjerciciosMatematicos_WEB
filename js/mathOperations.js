@@ -7,10 +7,8 @@ export function powers() {
     }else{
         power = Math.floor(Math.random() * 5);
     }
-    realAnswer = base ** power; 
-    document.getElementById("math-operation-text").innerHTML = `¿Cuánto es ${base} elevado a la ${power}?`;
-    document.getElementById("math-operation").innerHTML = `${base}<sup>${power}</sup>`;
-    document.getElementById("math-operation").classList.add("display-4");
+    let answer = base ** power;     
+    return { base, power, answer };
 }
 
 export function roots() {
@@ -22,16 +20,6 @@ export function roots() {
         base = Math.floor(Math.random() * 4) + 1;
     }
     base **= root;
-    realAnswer = Math.round(Math.pow(base, 1 / root));
-    console.log(realAnswer)
-    let operationText;
-    if (root === 2) {
-        operationText = "cuadrada";
-        document.getElementById("math-operation").innerHTML = `&radic;${base}`;
-    } else if (root === 3) {
-        operationText = "cúbica";
-        document.getElementById("math-operation").innerHTML = `<sup>3</sup>&radic;${base}`;
-    }
-    document.getElementById("math-operation-text").innerHTML = `¿Cuánto es la raíz ${operationText} de ${base}?`;
-    document.getElementById("math-operation").classList.add("display-4");
+    let answer = Math.round(Math.pow(base, 1 / root));
+    return { base, root, answer };
 }
