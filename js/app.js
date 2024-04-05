@@ -1,25 +1,35 @@
+// app.js
 import { powers, roots } from './mathOperations.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     
     let localAnswer;
-    let rachaPower = 0;
+    let record = 0;
+
+    const operationsMap = {
+        'potenciacion.html': () => {
+            let { base, power, answer } = powers();            
+            localAnswer = answer;
+            updateDOMWithPower(base, power);
+        },
+        'radicacion.html': () => {
+            let { base, root, answer } = roots();
+            localAnswer = answer;
+            updateDOMWithRoot(base, root);      
+        },
+        // ADD NEW PAGES
+    };
         
     function nextExercise(){
         document.getElementById("user-answer").value = "";
         document.getElementById("next-button").classList.add('d-none');
         document.getElementById("submit-answer").classList.remove('d-none');
-        
+        feedback.textContent = "";        
         const pathname = window.location.pathname;
-        feedback.textContent = "";
-        if (pathname.includes('potenciacion.html')) {
-            let { base, power, answer } = powers();            
-            localAnswer = answer;
-            updateDOMWithPower(base, power);
-        } else if (pathname.includes('radicacion.html')) {
-            let { base, root, answer } = roots();
-            localAnswer = answer;
-            updateDOMWithRoot(base, root);      
+        const pageName = pathname.split('/').pop();        
+        const operationFunction = operationsMap[pageName];
+        if (operationFunction) {
+            operationFunction(); 
         }
     }    
 
@@ -32,8 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
             feedback.className = "text-success text-center";
             document.getElementById("next-button").classList.remove('d-none');
             document.getElementById("submit-answer").classList.add('d-none');
-            rachaPower += 1;
-            document.getElementById("racha").textContent = `Racha: ${rachaPower}`;
+            record += 1;
+            document.getElementById("racha").textContent = `Racha: ${record}`;
         }else{
             feedback.textContent = "Incorrecto";
             feedback.className = "text-danger text-center";
@@ -45,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
 });
+
 
 function updateDOMWithPower( base, power) {
     document.getElementById("math-operation-text").innerHTML = `¿Cuánto es ${base} elevado a la ${power}?`;
