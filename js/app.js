@@ -47,9 +47,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }else{
             feedback.textContent = "Incorrecto";
             feedback.className = "text-danger text-center";
+            record = 0;
+            document.getElementById("racha").textContent = `Racha: ${record}`;
         }
    }
     nextExercise();
+    tooltipInit();
     document.getElementById("submit-answer").addEventListener('click', validateAnswer);
     document.getElementById("next-button").addEventListener('click', nextExercise);
     
@@ -74,4 +77,11 @@ function updateDOMWithRoot( base, root) {
     }
     document.getElementById("math-operation-text").innerHTML = `¿Cuánto es la raíz ${operationText} de ${base}?`;
     document.getElementById("math-operation").classList.add("display-4");
+}
+
+function tooltipInit(){
+    const tooltips = document.querySelectorAll('.tt');
+    tooltips.forEach(t => {
+        new bootstrap.Tooltip(t)
+    })
 }
