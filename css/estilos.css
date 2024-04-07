@@ -1,6 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Establece la altura del elemento html al 100% */
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Nunito', sans-serif;
+    min-height: 100vh; /* Usa 100vh para la altura mínima del body */
+    display: flex;
+    flex-direction: column; 
 }
+
+main {
+    flex: 1;
+}
+
 
 .btn-custom {
     padding: .5rem 1.5rem;
