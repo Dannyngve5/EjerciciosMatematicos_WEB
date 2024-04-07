@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById("submit-answer").classList.add('d-none');
             record += 1;
             document.getElementById("racha").textContent = `Racha: ${record}`;
-        }else{
+        }else if(userAnswer != ""){
             feedback.textContent = "Incorrecto";
             feedback.className = "text-danger text-center";
             record = 0;
@@ -55,6 +55,17 @@ document.addEventListener('DOMContentLoaded', function() {
     tooltipInit();
     document.getElementById("submit-answer").addEventListener('click', validateAnswer);
     document.getElementById("next-button").addEventListener('click', nextExercise);
+
+     // Oyente de eventos para la tecla Enter en el campo de respuesta del usuario
+     document.getElementById("user-answer").addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            if (!document.getElementById("submit-answer").classList.contains('d-none')) {
+                validateAnswer();
+            } else if (!document.getElementById("next-button").classList.contains('d-none')) {
+                nextExercise();
+            }
+        }
+    });
     
     
 });
