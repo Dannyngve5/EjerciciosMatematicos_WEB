@@ -40,7 +40,7 @@ main {
 
 header.masthead {
   position: relative; 
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   padding-top: calc(8rem + 57px);
   padding-bottom: 8rem;
   background: no-repeat center center;
@@ -105,15 +105,15 @@ header.masthead .site-heading .subheading {
   }
 }
 
-/* 
-article h2 {
-  font-family: "Open Sans";
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 1.1;    
+/* SECTION ARTICLE */
+
+.section-heading {
+  font-size: 2.25ren;
+  font-weight: 800;
+  margin-top: 2rem;
 }
 
-article h2.mt-4 {
-  margin-top: 3rem !important;
-}
- */
+
+
+
+
