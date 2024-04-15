@@ -4,12 +4,6 @@
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%; /* Establece la altura del elemento html al 100% */
-    margin: 0;
-    padding: 0;
-}
-
 body {
     font-family: 'Nunito', sans-serif;
     min-height: 100vh; /* Usa 100vh para la altura mínima del body */
@@ -128,8 +122,11 @@ header.masthead .site-heading .subheading {
 
 .video-container video {
   position: absolute;
-  min-width: 100%;
-  min-height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que el video cubra todo el contenedor, como la propiedad 'background-size: cover' */
 }
 
 .video-overlay {
@@ -155,4 +152,14 @@ header.masthead .site-heading .subheading {
   width: 100%; 
   font-size: 1.4rem; 
   font-weight: 300;
+}
+
+@media(max-width: 550px){
+  .video-overlay {
+    font-size: 2rem;
+  }
+
+  .video-overlay-subtitle {
+    font-size: 1rem;
+  }
 }
