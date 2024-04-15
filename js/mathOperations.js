@@ -23,3 +23,16 @@ export function roots() {
     let answer = Math.round(Math.pow(base, 1 / root));
     return { base, root, answer };
 }
+
+export function logarithm() {
+    const base = Math.floor(Math.random() * 9) + 2;
+    let log;
+    if (base <= 5){
+        log = Math.floor(Math.random() * 5) + 1;
+    }else{
+        log = Math.floor(Math.random() * 3) + 1;
+    }
+    let argument = base ** log
+    return { base, argument, log};
+
+}

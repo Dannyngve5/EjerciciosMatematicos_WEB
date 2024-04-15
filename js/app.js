@@ -1,5 +1,5 @@
 // app.js
-import { powers, roots } from './mathOperations.js';
+import { logarithm, powers, roots } from './mathOperations.js';
 
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -17,7 +17,11 @@ document.addEventListener('DOMContentLoaded', function() {
             localAnswer = answer;
             updateDOMWithRoot(base, root);      
         },
-        // ADD NEW PAGES
+        'logaritmo.html': () => {
+            let { base, argument, log} = logarithm();
+            localAnswer = log;
+            updateDOMWithLog(base, argument);
+        }
     };
         
     function nextExercise(){
@@ -87,6 +91,12 @@ function updateDOMWithRoot( base, root) {
         document.getElementById("math-operation").innerHTML = `<sup>3</sup>&radic;${base}`;
     }
     document.getElementById("math-operation-text").innerHTML = `¿Cuánto es la raíz ${operationText} de ${base}?`;
+    document.getElementById("math-operation").classList.add("display-4");
+}
+
+function updateDOMWithLog(base, argument){
+    document.getElementById("math-operation-text").innerHTML = ` ¿Cúanto es el logaritmo en base ${base} de ${argument}?`;
+    document.getElementById("math-operation").innerHTML = `Log<sub>${base}</sub> ${argument}`;
     document.getElementById("math-operation").classList.add("display-4");
 }
 
