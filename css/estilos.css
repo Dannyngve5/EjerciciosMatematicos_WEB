@@ -113,7 +113,46 @@ header.masthead .site-heading .subheading {
   margin-top: 2rem;
 }
 
+.forget {
+  text-decoration: none;  
+  font-size: 0.8rem;
+
+}
 
 
+.video-container {
+  height: 300px; 
+  overflow: hidden;
+  position: relative; 
+}
 
+.video-container video {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+}
 
+.video-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; 
+  text-align: center;
+  width: 100%; 
+  font-size: 3em; 
+  font-weight: 800;
+  font-family: "Segoe UI";
+}
+
+.video-overlay-subtitle {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+  color: white; 
+  text-align: center;
+  width: 100%; 
+  font-size: 1.4rem; 
+  font-weight: 300;
+}
